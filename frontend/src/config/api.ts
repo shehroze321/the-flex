@@ -4,7 +4,7 @@
  */
 
 export const apiConfig = {
-  baseUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001',
+  baseUrl: process.env.NEXT_PUBLIC_API_URL || 'https://the-flex-backend-pearl.vercel.app',
   endpoints: {
     health: '/health',
     reviews: '/api/reviews',
