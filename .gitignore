@@ -90,7 +90,7 @@ backend/logs/
 .nuxt/
 .nuxt/
 .cache/
-public/
+
 
 # ---------------------
 # Misc Scripts / Examples / Tests
