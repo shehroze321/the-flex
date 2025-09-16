@@ -42,32 +42,32 @@ export class ReviewController {
       let filteredReviews = [...mockReviews];
       
       // Apply propertyId filter if provided
-      if (req.query.propertyId && req.query.propertyId !== 'all') {
-        filteredReviews = filteredReviews.filter(review => review.propertyId === req.query.propertyId);
+      if (req.query['propertyId'] && req.query['propertyId'] !== 'all') {
+        filteredReviews = filteredReviews.filter(review => review.propertyId === req.query['propertyId']);
       }
       
       // Apply other filters
-      if (req.query.rating && req.query.rating !== 'all') {
-        const minRating = parseInt(req.query.rating as string);
+      if (req.query['rating'] && req.query['rating'] !== 'all') {
+        const minRating = parseInt(req.query['rating'] as string);
         filteredReviews = filteredReviews.filter(review => review.rating && review.rating >= minRating);
       }
       
-      if (req.query.channel && req.query.channel !== 'all') {
-        filteredReviews = filteredReviews.filter(review => review.channel === req.query.channel);
+      if (req.query['channel'] && req.query['channel'] !== 'all') {
+        filteredReviews = filteredReviews.filter(review => review.channel === req.query['channel']);
       }
       
-      if (req.query.category && req.query.category !== 'all') {
+      if (req.query['category'] && req.query['category'] !== 'all') {
         filteredReviews = filteredReviews.filter(review => 
-          review.reviewCategory && review.reviewCategory.some(cat => cat.category === req.query.category)
+          review.reviewCategory && review.reviewCategory.some(cat => cat.category === req.query['category'])
         );
       }
       
-      if (req.query.status && req.query.status !== 'all') {
-        filteredReviews = filteredReviews.filter(review => review.status === req.query.status);
+      if (req.query['status'] && req.query['status'] !== 'all') {
+        filteredReviews = filteredReviews.filter(review => review.status === req.query['status']);
       }
       
-      if (req.query.search) {
-        const searchTerm = (req.query.search as string).toLowerCase();
+      if (req.query['search']) {
+        const searchTerm = (req.query['search'] as string).toLowerCase();
         filteredReviews = filteredReviews.filter(review => 
           review.publicReview.toLowerCase().includes(searchTerm) ||
           review.guestName.toLowerCase().includes(searchTerm)
