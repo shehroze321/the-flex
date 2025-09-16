@@ -1,0 +1,468 @@
+@import "tailwindcss";
+
+:root {
+  /* Flex Living Color Palette - Centralized Theme */
+  --background: #ffffff;
+  --foreground: #293122;
+  --primary: #D4F872;
+  --primary-foreground: #293122;
+  --secondary: #F5F3EF;
+  --secondary-foreground: #323927;
+  --muted: #F5F3EF;
+  --muted-foreground: #6c757d;
+  --accent: #e9ecef;
+  --accent-foreground: #323927;
+  --destructive: #dc3545;
+  --destructive-foreground: #ffffff;
+  --border: #e9ecef;
+  --input: #e9ecef;
+  --ring: #D4F872;
+  --radius: 0.5rem;
+  --success: #28a745;
+  --warning: #ffc107;
+  --info: #17a2b8;
+  
+  /* Flex Living Specific Colors */
+  --flex-lime: #D4F872;
+  --flex-dark-green: #293122;
+  --flex-printemps: #323927;
+  --flex-mousse: #F5F3EF;
+  --flex-white: #ffffff;
+  --flex-black: #000000;
+  --flex-gray-light: #f8f9fa;
+  --flex-gray-medium: #6c757d;
+  --flex-gray-dark: #495057;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --radius: var(--radius);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --secondary: #1e293b;
+    --secondary-foreground: #f8fafc;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --accent: #1e293b;
+    --accent-foreground: #f8fafc;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #334155;
+    --input: #334155;
+    --ring: #3b82f6;
+  }
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+/* Flex Living specific styles */
+.flex-living-gradient {
+  background: linear-gradient(135deg, var(--flex-lime) 0%, #B8E082 100%);
+}
+
+.flex-living-card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.flex-living-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--flex-lime), #B8E082, var(--flex-lime));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.flex-living-card:hover::before {
+  transform: scaleX(1);
+}
+
+.flex-living-card:hover {
+  box-shadow: 0 20px 40px 0 rgb(0 0 0 / 0.15);
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--flex-lime);
+}
+
+.flex-living-hero {
+  background: linear-gradient(135deg, var(--flex-lime) 0%, #B8E082 100%);
+  color: var(--flex-dark-green);
+}
+
+.flex-living-button {
+  background: var(--flex-lime);
+  color: var(--flex-dark-green);
+  border: 2px solid var(--flex-lime);
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.flex-living-button:hover {
+  background: var(--flex-dark-green);
+  color: var(--flex-lime);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 248, 114, 0.4);
+}
+
+.flex-living-button-outline {
+  background: transparent;
+  color: var(--flex-dark-green);
+  border: 2px solid var(--flex-dark-green);
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.flex-living-button-outline:hover {
+  background: var(--flex-dark-green);
+  color: var(--flex-lime);
+  transform: translateY(-1px);
+}
+
+.flex-living-section {
+  padding: 60px 0;
+}
+
+.flex-living-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.flex-living-text-primary {
+  color: var(--flex-lime);
+}
+
+.flex-living-text-dark {
+  color: var(--flex-dark-green);
+}
+
+.flex-living-text-printemps {
+  color: var(--flex-printemps);
+}
+
+.flex-living-bg-primary {
+  background: var(--flex-lime);
+}
+
+.flex-living-bg-mousse {
+  background: var(--flex-mousse);
+}
+
+.flex-living-border-primary {
+  border-color: var(--flex-lime);
+}
+
+.flex-living-border-dark {
+  border-color: var(--flex-dark-green);
+}
+
+/* Typography styles matching Flex Living */
+.flex-living-heading {
+  font-weight: 700;
+  color: var(--flex-dark-green);
+  line-height: 1.2;
+}
+
+.flex-living-subheading {
+  font-weight: 600;
+  color: var(--flex-printemps);
+  line-height: 1.3;
+}
+
+.flex-living-body {
+  color: var(--flex-printemps);
+  line-height: 1.6;
+}
+
+.flex-living-caption {
+  color: var(--flex-gray-medium);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Input styles */
+.flex-living-input {
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  background: var(--background);
+  color: var(--foreground);
+  transition: all 0.3s ease;
+}
+
+.flex-living-input:focus {
+  outline: none;
+  border-color: var(--flex-lime);
+  box-shadow: 0 0 0 3px rgba(212, 248, 114, 0.1);
+}
+
+/* Badge styles */
+.flex-living-badge {
+  background: var(--flex-lime);
+  color: var(--flex-dark-green);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.flex-living-badge-outline {
+  background: transparent;
+  color: var(--flex-dark-green);
+  border: 2px solid var(--flex-dark-green);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Advanced animations and effects */
+.flex-living-glow {
+  box-shadow: 0 0 20px rgba(212, 248, 114, 0.3);
+}
+
+.flex-living-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.flex-living-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+.flex-living-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 248, 114, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.flex-living-gradient-text {
+  background: linear-gradient(135deg, var(--flex-lime), #B8E082);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.flex-living-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.flex-living-floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Cursor styles for all clickable elements */
+button,
+[role="button"],
+[type="button"],
+[type="submit"],
+[type="reset"],
+a,
+[href],
+[onclick],
+[tabindex]:not([tabindex="-1"]),
+input[type="checkbox"],
+input[type="radio"],
+select,
+option,
+.clickable,
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+/* Specific cursor styles for different elements */
+button:disabled,
+[role="button"]:disabled,
+[type="button"]:disabled,
+[type="submit"]:disabled,
+[type="reset"]:disabled,
+a:disabled {
+  cursor: not-allowed !important;
+}
+
+/* Hover effects for clickable elements */
+button:hover,
+[role="button"]:hover,
+[type="button"]:hover,
+[type="submit"]:hover,
+[type="reset"]:hover,
+a:hover,
+[href]:hover,
+.clickable:hover {
+  cursor: pointer !important;
+}
+
+/* Card hover effects */
+.flex-living-card:hover {
+  cursor: pointer;
+}
+
+/* Navigation items */
+nav a,
+nav button,
+.nav-item {
+  cursor: pointer !important;
+}
+
+/* Select and dropdown elements */
+[data-radix-select-trigger],
+[data-radix-dropdown-trigger],
+[data-radix-popover-trigger] {
+  cursor: pointer !important;
+}
+
+/* Chart elements */
+.recharts-cartesian-axis-tick,
+.recharts-bar,
+.recharts-line,
+.recharts-pie-sector {
+  cursor: pointer !important;
+}
+
+/* Table rows and cells */
+tr[role="row"]:hover,
+td[role="cell"]:hover,
+th[role="columnheader"]:hover {
+  cursor: pointer !important;
+}
+
+/* Badge and tag elements */
+.badge,
+.tag,
+[data-badge] {
+  cursor: pointer !important;
+}
+
+/* Icon buttons and clickable icons */
+svg[role="button"],
+.icon-button,
+[data-icon-button] {
+  cursor: pointer !important;
+}
+
+/* Ensure all interactive elements have proper cursor */
+[data-interactive],
+[data-clickable],
+.interactive,
+.clickable {
+  cursor: pointer !important;
+}
+
