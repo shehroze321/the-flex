@@ -62,9 +62,9 @@ npm run dev
 ```env
 PORT=3001
 NODE_ENV=development
-MONGODB_URI=mongodb://localhost:27017/flex-living-reviews
-HOSTAWAY_ACCOUNT_ID=61148
-HOSTAWAY_API_KEY=f94377ebbbb479490bb3ec364649168dc443dda2e4830facaf5de2e74ccc9152
+MONGODB_URI=your_db_url
+HOSTAWAY_ACCOUNT_ID=your_hostway_account_id
+HOSTAWAY_API_KEY=your_hostway_api_key
 GOOGLE_PLACES_API_KEY=your_google_places_api_key_here
 CORS_ORIGIN=http://localhost:3000
 ```
