@@ -7,15 +7,15 @@ A comprehensive guest review management system for Flex Living properties, featu
 ## 🚀 **Live Deployment URLs**
 
 ### **Frontend (Next.js)**
-- **Production URL**: `https://flex-living-reviews.vercel.app`
-- **Dashboard**: `https://flex-living-reviews.vercel.app/dashboard`
-- **Properties**: `https://flex-living-reviews.vercel.app/properties`
-- **Reviews**: `https://flex-living-reviews.vercel.app/reviews`
+- **Production URL**: `https://the-flex-3lv9.vercel.app`
+- **Dashboard**: `https://the-flex-3lv9.vercel.app/dashboard`
+- **Properties**: `https://the-flex-3lv9.vercel.app/properties`
+- **Reviews**: `https://the-flex-3lv9.vercel.app/reviews`
 
 ### **Backend (Express.js)**
-- **Production URL**: `https://the-flex-backend.vercel.app`
-- **Health Check**: `https://the-flex-backend.vercel.app/health`
-- **API Documentation**: `https://the-flex-backend.vercel.app/`
+- **Production URL**: `https://the-flex-backend-pearl.vercel.app`
+- **Health Check**: `https://the-flex-backend-pearl.vercel.app/health`
+- **API Documentation**: `https://the-flex-backend-pearl.vercel.app/`
 
 ## 🛠 **Tech Stack**
 
