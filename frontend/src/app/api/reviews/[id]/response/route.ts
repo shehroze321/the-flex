@@ -4,9 +4,10 @@ const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3001';
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const { response } = body;
 
@@ -20,7 +21,7 @@ export async function POST(
       );
     }
 
-    const apiResponse = await fetch(`${BACKEND_URL}/api/reviews/${params.id}/response`, {
+    const apiResponse = await fetch(`${BACKEND_URL}/api/reviews/${id}/response`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

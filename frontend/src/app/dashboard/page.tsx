@@ -127,9 +127,9 @@ export default function DashboardPage() {
   }, [filteredReviews])
 
   const categoryPerformance = useMemo(() => {
-    const categoryReviews = filteredReviews.reduce((acc: any, review) => {
+    const categoryReviews = filteredReviews.reduce((acc: Record<string, { total: number; sum: number }>, review) => {
       if (review.reviewCategory) {
-        review.reviewCategory.forEach((cat: any) => {
+        review.reviewCategory.forEach((cat: { category: string; rating: number }) => {
           if (!acc[cat.category]) {
             acc[cat.category] = { total: 0, sum: 0 }
           }
@@ -398,7 +398,7 @@ export default function DashboardPage() {
             <CardContent>
               <div className="space-y-4">
                 {recentReviews.map((review, index) => (
-                  <div key={review._id || review.id || index} className="p-3 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+                  <div key={review.id || index} className="p-3 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex items-center space-x-2">
                         <div className={`text-sm font-semibold ${getRatingColor(review.rating || 0)}`}>

@@ -111,9 +111,9 @@ export default function PropertyDetailsPage() {
   }, [filteredReviews])
 
   const categoryPerformance = useMemo(() => {
-    const categoryReviews = filteredReviews.reduce((acc: any, review) => {
+    const categoryReviews = filteredReviews.reduce((acc: Record<string, { total: number; sum: number }>, review) => {
       if (review.reviewCategory) {
-        review.reviewCategory.forEach((cat: any) => {
+        review.reviewCategory.forEach((cat: { category: string; rating: number }) => {
           if (!acc[cat.category]) {
             acc[cat.category] = { total: 0, sum: 0 }
           }
@@ -180,7 +180,7 @@ export default function PropertyDetailsPage() {
           <div className="flex-1 p-8 flex items-center justify-center">
             <div className="text-center">
               <h1 className="text-2xl font-bold text-destructive mb-4">Property Not Found</h1>
-              <p className="text-muted-foreground mb-6">The property you're looking for doesn't exist.</p>
+              <p className="text-muted-foreground mb-6">The property you&apos;re looking for doesn&apos;t exist.</p>
               <Link href="/properties">
                 <Button className="flex-living-button">
                   <ArrowLeft className="h-4 w-4 mr-2" />
@@ -354,7 +354,7 @@ export default function PropertyDetailsPage() {
               ) : (
                 <div className="space-y-6">
                   {filteredReviews.map((review, index) => (
-                    <div key={review._id || review.id || index} className="border-b border-border pb-6 last:border-b-0">
+                    <div key={review.id || index} className="border-b border-border pb-6 last:border-b-0">
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex items-center space-x-3">
                           <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">

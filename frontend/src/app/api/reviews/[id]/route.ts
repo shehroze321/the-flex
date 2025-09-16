@@ -4,10 +4,11 @@ const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3001';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const response = await fetch(`${BACKEND_URL}/api/reviews/${params.id}`, {
+    const { id } = await params;
+    const response = await fetch(`${BACKEND_URL}/api/reviews/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -35,13 +36,14 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const { isApproved, isPublic } = body;
 
-    const response = await fetch(`${BACKEND_URL}/api/reviews/${params.id}/approval`, {
+    const response = await fetch(`${BACKEND_URL}/api/reviews/${id}/approval`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

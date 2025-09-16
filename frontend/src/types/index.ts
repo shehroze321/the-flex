@@ -10,6 +10,7 @@ export interface Review {
   submittedAt: string;
   guestName: string;
   listingName: string;
+  propertyId?: string;
   channel?: 'airbnb' | 'booking' | 'hostaway' | 'google' | 'direct';
   isApproved?: boolean;
   isPublic?: boolean;
@@ -32,6 +33,7 @@ export interface Property {
   imageUrl?: string;
   images?: string[];
   description?: string;
+  propertyType?: string;
   features?: {
     bedrooms: number;
     bathrooms: number;
